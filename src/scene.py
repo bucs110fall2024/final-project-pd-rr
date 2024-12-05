@@ -1,5 +1,5 @@
 class Scene:
-    def __init__((self story, choices)):
+    def __init__(self, story, choices):
         """Starts the Scene"""
         
     def display(self):
