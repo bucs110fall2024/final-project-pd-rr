@@ -1,11 +1,12 @@
 import pygame
 
 class Scene:
-    def __init__(self, text, x_pos, y_pos, picture=None):
+    def __init__(self, text, x_pos, y_pos, choices, correct_choice, picture=None):
         """Placeholder"""
         self.text = text
         self.x_pos = x_pos
         self.y_pos = y_pos
+
         self.width, self.height = 600, 150 
         self.scene_rect = pygame.rect.Rect(self.x_pos, self.y_pos, self.width, self.height)  
 
@@ -14,6 +15,8 @@ class Scene:
         else: 
             self.picture = None
 
+        self.choices = choices
+        self.correct_choice = correct_choice
 
     def draw(self, screen, font):
         scene_text = font.render(self.text, True, 'black')
@@ -26,6 +29,9 @@ class Scene:
         if self.picture:
             picture_rect = self.picture.get_rect(topleft=(self.x_pos, self.y_pos + self.height + 20))
             screen.blit(self.picture, picture_rect)
+
+        for choice in self.choices:
+            choice.draw(screen, font)
 
 
   
