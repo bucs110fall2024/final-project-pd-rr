@@ -1,3 +1,5 @@
 TEAM MEMBERS: PARTHA DHAR, TAWHIDUR RAHMAN
-Project Description: Choose your own adventure type story game.
-Features: Multiple options to choose which direction to take your story, visuals to go along with story, start menu. mouse interactable screen, moving background
+TITLE: The Cave of Riddles
+COURSE NUMBER: CS110 with Steven Moore, Fall Semester
+Project Overview: An interactive game in which players will have to solve a series of riddles in order to escape the cave. Each riddle has three choices and the player will have unlimited attempts per riddle. If the player chooses the right answer, they will proceed to the next riddle. If they get it wrong, a tally is added to a counter which tells the player how many incorrect choices they made.
+ADDITIONAL MODULES: None used.
