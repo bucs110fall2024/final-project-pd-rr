@@ -3,40 +3,44 @@ import pygame
 from scene import Scene
 from choice import Choice
 
-BGCOLOR = (255, 255, 255)
+WHITE = (251, 166, 58)
 
 
 class Controller: 
     def __init__(self):
-        """Initialzes controller, sets up pygame, start screen"""
         pygame.init()
         self.screen = pygame.display.set_mode()
-        self.width, self.height = 800, 600
+        self.width, self.height = 1920, 1080
         self.background = pygame.Surface((self.width, self.height))
-        self.background_color = BGCOLOR
+        self.background_color = WHITE
         self.background.fill(self.background_color)
         pygame.display.set_caption("The Cave of Riddles")
         self.font = pygame.font.Font(None, 32)        
 
         self.wrong_choices = 0
 
+        self.background_image = pygame.image.load("assets/background.jpg")
+        self.background_image = pygame.transform.scale(self.background_image, (self.width, self.height))
+
+        self.transition_image = pygame.image.load("assets/transitionscreen.jpg")
+        self.transition_image = pygame.transform.scale(self.background_image, (self.width, self.height))
 
         self.font = pygame.font.Font(None, 18)  
         self.current_scene = 0
         self.make_scenes()
 
     def start_screen(self):
-        self.screen.fill(BGCOLOR)
+        self.screen.blit(self.transition_image, (0, 0))  
         title_font = pygame.font.Font(None, 64)
         context_font = pygame.font.Font(None, 32)
 
         title_text = "The Cave of Riddles"
-        title = title_font.render(title_text, True, (0, 0, 0))
-        self.screen.blit(title, (self.width // 2 - title.get_width() // 2, 100))
+        title = title_font.render(title_text, True, WHITE)
+        self.screen.blit(title, (500, 100))
 
         context_text = "Test your Knowledge, answer these riddles. Press any key."
-        context = context_font.render(context_text, True, (0, 0, 0))
-        self.screen.blit(context, (self.width // 2 - context.get_width() // 2, 500))
+        context = context_font.render(context_text, True, WHITE)
+        self.screen.blit(context, (450, 500))
 
         pygame.display.flip()
 
@@ -52,39 +56,39 @@ class Controller:
     def make_scenes(self):
         """Placeholder"""
         choice_scene_1 = [ 
-            Choice("Choice 1", 100, 400, enabled=True),
-            Choice("Choice 2", 100, 450, enabled=True),
-            Choice("Choice 3", 100, 500, enabled=True)
+            Choice("The Moon", 650, 400, enabled=True),
+            Choice("The Sun", 650, 450, enabled=True),
+            Choice("A Torch", 650, 500, enabled=True)
         ]
-        scene_1 = Scene("Riddle 1?", 100, 200, choice_scene_1, "Choice 1") 
+        scene_1 = Scene("I rise in the morning but set at night. I guide the lost with my light. What am I?", 420, 200, choice_scene_1, "The Sun") 
 
         choice_scene_2 = [ 
-            Choice("Choice 1", 100, 400, enabled=True),
-            Choice("Choice 2", 100, 450, enabled=True),
-            Choice("Choice 3", 100, 500, enabled=True)
+            Choice("A River", 650, 400, enabled=True),
+            Choice("A Clock", 650, 450, enabled=True),
+            Choice("A Shadow", 650, 500, enabled=True)
         ]
-        scene_2 = Scene("Riddle 2?", 100, 200, choice_scene_2, "Choice 3" ) 
+        scene_2 = Scene("I am always running but never move. I have a mouth but no voice. What am I?", 420, 200, choice_scene_2, "A Clock" ) 
 
         choice_scene_3 = [ 
-            Choice("Choice 1", 100, 400, enabled=True),
-            Choice("Choice 2", 100, 450, enabled=True),
-            Choice("Choice 3", 100, 500, enabled=True)
+            Choice("An Echo", 650, 400, enabled=True),
+            Choice("A Whisper", 650, 450, enabled=True),
+            Choice("A Ghost", 650, 500, enabled=True)
         ]
-        scene_3 = Scene("Riddle 3?", 100, 200, choice_scene_3, "Choice 2" ) 
+        scene_3 = Scene("Speaking without a mouth, born from a cave, I can be heard but never seen. What am I?", 420, 200, choice_scene_3, "An Echo" ) 
 
         choice_scene_4 = [ 
-            Choice("Choice 1", 100, 400, enabled=True),
-            Choice("Choice 2", 100, 450, enabled=True),
-            Choice("Choice 3", 100, 500, enabled=True)
+            Choice("Footsteps", 650, 400, enabled=True),
+            Choice("Time", 650, 450, enabled=True),
+            Choice("Shadows", 650, 500, enabled=True)
         ]
-        scene_4 = Scene("Riddle 4?", 100, 200, choice_scene_4, "Choice 2") 
+        scene_4 = Scene("The more of me you take, the more you leave behind. What am I?", 420, 200, choice_scene_4, "Footsteps") 
 
         choice_scene_5 = [ 
-            Choice("Choice 1", 100, 400, enabled=True),
-            Choice("Choice 2", 100, 450, enabled=True),
-            Choice("Choice 3", 100, 500, enabled=True)
+            Choice("Fire", 650, 400, enabled=True),
+            Choice("A Plant", 650, 450, enabled=True),
+            Choice("Water", 650, 500, enabled=True)
         ]
-        scene_5 = Scene("Riddle 5?", 100, 200, choice_scene_5, "Choice 1" ) 
+        scene_5 = Scene("I am not alive, but I grow. I don’t have lungs, but I need air. What am I?", 420, 200, choice_scene_5, "Fire" ) 
 
         self.scenes = [scene_1, scene_2, scene_3, scene_4, scene_5]  
      
@@ -104,12 +108,12 @@ class Controller:
                         self.wrong_choices += 1
 
     def end_scene(self):
-        self.screen.fill(BGCOLOR)
+        self.screen.blit(self.transition_image, (0, 0))  
         end_text = f"You have passed, having made {self.wrong_choices} wrong choices."
-        end_font = pygame.font.Font(None, 36)
-        end_surface = end_font.render(end_text, True, (0, 0, 0))
+        end_font = pygame.font.Font(None, 48)
+        end_surface = end_font.render(end_text, True, WHITE)
         self.screen.blit(end_surface, (self.width // 2 - end_surface.get_width() // 2, self.height // 2))
-
+    
         pygame.display.flip()
         pygame.time.wait(6000)
         pygame.quit()
@@ -119,7 +123,7 @@ class Controller:
     def mainloop(self):
         """placeholder"""
         self.start_screen()
-        
+
         while True: 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -129,7 +133,7 @@ class Controller:
                     self.check_choice(event)
                         
             
-            self.screen.fill(BGCOLOR)
+            self.screen.blit(self.background_image, (0, 0))
             self.scene = self.scenes[self.current_scene]
             self.scene.draw(self.screen, self.font)
 

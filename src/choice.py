@@ -7,7 +7,7 @@ class Choice:
         self.x_pos = x_pos
         self.y_pos = y_pos
         self.enabled = enabled
-        self.width, self.height = 150, 25  
+        self.width, self.height = 150, 25 
         self.choice_rect = pygame.rect.Rect(self.x_pos, self.y_pos, self.width, self.height)  
 
     def draw(self, screen, font):
