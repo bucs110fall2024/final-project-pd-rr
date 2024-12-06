@@ -1,9 +1,12 @@
 import pygame
 
+LIGHTORANGE = (255,213,128)
+BLACK = (0, 0, 0)
+
 class Scene:
     def __init__(self, text, x_pos, y_pos, choices, correct_choice, picture=None):
         """Basis for scenes
-        
+
         """
         self.text = text
         self.x_pos = x_pos
@@ -22,10 +25,10 @@ class Scene:
 
     def draw(self, screen, font):
         """Draws the Scene"""
-        scene_text = font.render(self.text, True, 'black')
+        scene_text = font.render(self.text, True, BLACK )
         scene_rect = scene_text.get_rect(center=self.scene_rect.center)
-        pygame.draw.rect(screen, (255,213,128), self.scene_rect, 0, 5)  # Filled rectangle
-        pygame.draw.rect(screen, 'black', self.scene_rect, 2, 5)
+        pygame.draw.rect(screen, LIGHTORANGE, self.scene_rect, 0, 5)  # Filled rectangle
+        pygame.draw.rect(screen, BLACK , self.scene_rect, 2, 5)
 
         screen.blit(scene_text, scene_rect)
 

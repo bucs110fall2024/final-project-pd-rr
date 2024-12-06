@@ -3,8 +3,7 @@ import pygame
 from scene import Scene
 from choice import Choice
 
-WHITE = (251, 166, 58)
-
+ORANGE = (251, 166, 58)
 
 class Controller: 
     def __init__(self):
@@ -13,7 +12,7 @@ class Controller:
         self.screen = pygame.display.set_mode()
         self.width, self.height = 1920, 1080
         self.background = pygame.Surface((self.width, self.height))
-        self.background_color = WHITE
+        self.background_color = ORANGE
         self.background.fill(self.background_color)
         pygame.display.set_caption("The Cave of Riddles")
         self.font = pygame.font.Font(None, 32)        
@@ -37,11 +36,11 @@ class Controller:
         context_font = pygame.font.Font(None, 32)
 
         title_text = "The Cave of Riddles"
-        title = title_font.render(title_text, True, WHITE)
+        title = title_font.render(title_text, True, ORANGE)
         self.screen.blit(title, (500, 100))
 
         context_text = "Test your Knowledge, answer these riddles. Press any key."
-        context = context_font.render(context_text, True, WHITE)
+        context = context_font.render(context_text, True, ORANGE)
         self.screen.blit(context, (450, 500))
 
         previous_score = self.load_score()
@@ -49,7 +48,7 @@ class Controller:
             score_text = f"Previous Incorrect Choices: {previous_score}"
         else: score_text = "No previous attempts found."
 
-        score = context_font.render(score_text, True, WHITE)
+        score = context_font.render(score_text, True, ORANGE)
         self.screen.blit(score, (450, 600))
 
         pygame.display.flip()
@@ -136,13 +135,13 @@ class Controller:
         self.screen.blit(self.transition_image, (0, 0))  
         end_text = f"You have passed, having made {self.wrong_choices} wrong choices."
         end_font = pygame.font.Font(None, 48)
-        end_surface = end_font.render(end_text, True, WHITE)
+        end_surface = end_font.render(end_text, True, ORANGE)
         self.screen.blit(end_surface, (400 ,450 ))
         pygame.display.flip()
 
         self.save_score()
 
-        pygame.time.wait(6000)
+        pygame.time.wait(5000)
         pygame.quit()
         exit()
 
