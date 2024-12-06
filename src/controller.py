@@ -42,6 +42,14 @@ class Controller:
         context = context_font.render(context_text, True, WHITE)
         self.screen.blit(context, (450, 500))
 
+        previous_score = self.load_score()
+        if previous_score is not None:
+            score_text = f"Previous Incorrect Choices: {previous_score}"
+        else: score_text = "No previous attempts found."
+
+        score = context_font.render(score_text, True, WHITE)
+        self.screen.blit(score, (450, 600))
+
         pygame.display.flip()
 
         wait = True
@@ -107,14 +115,27 @@ class Controller:
                         print("Try again")
                         self.wrong_choices += 1
 
+    def save_score(self):
+        file = open("previous_score.txt", "w")
+        file.write(str(self.wrong_choices))
+        file.close()
+
+    def load_score(self):
+        file = open("previous_score.txt", "r")
+        score = int(file.read().strip())  
+        file.close()
+        return score
+
     def end_scene(self):
         self.screen.blit(self.transition_image, (0, 0))  
         end_text = f"You have passed, having made {self.wrong_choices} wrong choices."
         end_font = pygame.font.Font(None, 48)
         end_surface = end_font.render(end_text, True, WHITE)
         self.screen.blit(end_surface, (400 ,450 ))
-    
         pygame.display.flip()
+
+        self.save_score()
+
         pygame.time.wait(6000)
         pygame.quit()
         exit()
