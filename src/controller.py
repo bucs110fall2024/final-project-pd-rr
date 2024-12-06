@@ -8,6 +8,7 @@ WHITE = (251, 166, 58)
 
 class Controller: 
     def __init__(self):
+        """Sets up game window, loads assets and scenes"""
         pygame.init()
         self.screen = pygame.display.set_mode()
         self.width, self.height = 1920, 1080
@@ -30,6 +31,7 @@ class Controller:
         self.make_scenes()
 
     def start_screen(self):
+        """Displays the start screen"""
         self.screen.blit(self.transition_image, (0, 0))  
         title_font = pygame.font.Font(None, 64)
         context_font = pygame.font.Font(None, 32)
@@ -62,7 +64,7 @@ class Controller:
                     wait = False
 
     def make_scenes(self):
-        """Placeholder"""
+        """Makes each scene"""
         choice_scene_1 = [ 
             Choice("The Moon", 650, 400, enabled=True),
             Choice("The Sun", 650, 450, enabled=True),
@@ -102,6 +104,7 @@ class Controller:
      
 
     def check_choice(self, click):
+        """Checks which choice is picked"""
         if click.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = pygame.mouse.get_pos()
             for choice in self.scene.choices:
@@ -116,17 +119,20 @@ class Controller:
                         self.wrong_choices += 1
 
     def save_score(self):
+        """Saves # of choices incorrect"""
         file = open("previous_score.txt", "w")
         file.write(str(self.wrong_choices))
         file.close()
 
     def load_score(self):
+        """Loads # of choices incorrect"""
         file = open("previous_score.txt", "r")
         score = int(file.read().strip())  
         file.close()
         return score
 
     def end_scene(self):
+        """Shows the End screen"""
         self.screen.blit(self.transition_image, (0, 0))  
         end_text = f"You have passed, having made {self.wrong_choices} wrong choices."
         end_font = pygame.font.Font(None, 48)
@@ -142,7 +148,7 @@ class Controller:
 
 
     def mainloop(self):
-        """placeholder"""
+        """Keeps game running unless exited out of"""
         self.start_screen()
 
         while True: 

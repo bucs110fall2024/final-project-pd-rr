@@ -2,7 +2,7 @@ import pygame
 
 class Choice:
     def __init__(self, text, x_pos, y_pos, enabled):
-        """Placeholder"""
+        """Intializes Choice buttons"""
         self.text = text
         self.x_pos = x_pos
         self.y_pos = y_pos
@@ -11,7 +11,7 @@ class Choice:
         self.choice_rect = pygame.rect.Rect(self.x_pos, self.y_pos, self.width, self.height)  
 
     def draw(self, screen, font):
-        """Placeholder"""
+        """Draws the choice button"""
         choice_text = font.render(self.text, True, (0, 0, 0))
         choice_rect = pygame.rect.Rect(self.x_pos, self.y_pos, 150, 25)
 
@@ -27,7 +27,7 @@ class Choice:
         screen.blit(choice_text, (self.x_pos + 3, self.y_pos + 3))
 
     def check_click(self):
-        """Placeholder"""
+        """Checks if a choice is clicked"""
         mouse_pos = pygame.mouse.get_pos()
         left_click = pygame.mouse.get_pressed()[0]
         choice_rect = pygame.rect.Rect(self.x_pos, self.y_pos, 150, 25)

@@ -2,7 +2,9 @@ import pygame
 
 class Scene:
     def __init__(self, text, x_pos, y_pos, choices, correct_choice, picture=None):
-        """Placeholder"""
+        """Basis for scenes
+        
+        """
         self.text = text
         self.x_pos = x_pos
         self.y_pos = y_pos
@@ -19,6 +21,7 @@ class Scene:
         self.correct_choice = correct_choice
 
     def draw(self, screen, font):
+        """Draws the Scene"""
         scene_text = font.render(self.text, True, 'black')
         scene_rect = scene_text.get_rect(center=self.scene_rect.center)
         pygame.draw.rect(screen, (255,213,128), self.scene_rect, 0, 5)  # Filled rectangle
