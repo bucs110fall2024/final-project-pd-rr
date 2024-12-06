@@ -133,7 +133,7 @@ class Controller:
     def end_scene(self):
         """Shows the End screen"""
         self.screen.blit(self.transition_image, (0, 0))  
-        end_text = f"You have passed, having made {self.wrong_choices} wrong choices."
+        end_text = f"You have escaped, having made {self.wrong_choices} wrong choices."
         end_font = pygame.font.Font(None, 48)
         end_surface = end_font.render(end_text, True, ORANGE)
         self.screen.blit(end_surface, (400 ,450 ))
