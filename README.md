@@ -20,3 +20,7 @@ ATP:
 4) Test whether the tally functionality is working correctly
    Steps: Input incorrect choices, and take note of how many times they were selected
    Expected Result: The counter should display the correct number of incorrect choices
+
+5) Verify whether or not the start screen is displayed correctly
+   Steps: Open the application and ensure "transition.jpg" is displayed, as well as the title and description
+   Expected Result: The background image, title, and description should all be present as soon as the application is opened.
