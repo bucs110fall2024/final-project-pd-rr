@@ -1,7 +1,11 @@
 TEAM MEMBERS: PARTHA DHAR, TAWHIDUR RAHMAN
+
 TITLE: The Cave of Riddles
+
 COURSE NUMBER: CS110 with Steven Moore, Fall Semester
+
 Project Overview: An interactive game in which players will have to solve a series of riddles in order to escape the cave. Each riddle has three choices and the player will have unlimited attempts per riddle. If the player chooses the right answer, they will proceed to the next riddle. If they get it wrong, a tally is added to a counter which tells the player how many incorrect choices they made.
+
 ADDITIONAL MODULES: None used.
 
 ATP:
@@ -24,3 +28,6 @@ ATP:
 5) Verify whether or not the start screen is displayed correctly
    Steps: Open the application and ensure "transition.jpg" is displayed, as well as the title and description
    Expected Result: The background image, title, and description should all be present as soon as the application is opened.
+
+Final GUI: 
+<img width="1463" alt="Screenshot 2024-12-05 at 10 39 25 PM" src="https://github.com/user-attachments/assets/509c5f1e-8ca4-44ae-9c1e-fc0ca5fe5d54">
