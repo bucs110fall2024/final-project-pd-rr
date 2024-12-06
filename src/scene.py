@@ -21,7 +21,7 @@ class Scene:
     def draw(self, screen, font):
         scene_text = font.render(self.text, True, 'black')
         scene_rect = scene_text.get_rect(center=self.scene_rect.center)
-        pygame.draw.rect(screen, 'light gray', self.scene_rect, 0, 5)  # Filled rectangle
+        pygame.draw.rect(screen, (255,213,128), self.scene_rect, 0, 5)  # Filled rectangle
         pygame.draw.rect(screen, 'black', self.scene_rect, 2, 5)
 
         screen.blit(scene_text, scene_rect)

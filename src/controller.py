@@ -25,7 +25,7 @@ class Controller:
         self.transition_image = pygame.image.load("assets/transitionscreen.jpg")
         self.transition_image = pygame.transform.scale(self.background_image, (self.width, self.height))
 
-        self.font = pygame.font.Font(None, 18)  
+        self.font = pygame.font.Font(None, 20)  
         self.current_scene = 0
         self.make_scenes()
 
@@ -112,7 +112,7 @@ class Controller:
         end_text = f"You have passed, having made {self.wrong_choices} wrong choices."
         end_font = pygame.font.Font(None, 48)
         end_surface = end_font.render(end_text, True, WHITE)
-        self.screen.blit(end_surface, (self.width // 2 - end_surface.get_width() // 2, self.height // 2))
+        self.screen.blit(end_surface, (400 ,450 ))
     
         pygame.display.flip()
         pygame.time.wait(6000)

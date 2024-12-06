@@ -17,9 +17,9 @@ class Choice:
 
         if self.enabled:
             if self.choice_rect.collidepoint(pygame.mouse.get_pos()):
-                pygame.draw.rect(screen, (169, 169, 169), choice_rect, 0, 5)
+                pygame.draw.rect(screen, (0, 255, 255), choice_rect, 0, 5)
             else:
-                pygame.draw.rect(screen, (211, 211, 211), choice_rect, 0, 5)
+                pygame.draw.rect(screen, (255, 255, 0), choice_rect, 0, 5)
         else:
                     pygame.draw.rect(screen,(0, 0, 0), choice_rect, 0, 5)
 
